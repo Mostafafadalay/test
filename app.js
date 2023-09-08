@@ -50,6 +50,10 @@ app.use((req , res , next) => {
 app.use('/tasks' , tasksRoute)
 app.use('/auth' , authRoute)
 
+app.get("/", (req, res) => {
+  res.redirect("/api-docs");
+});
+
 app.use((error, req, res, next) => {
     const status = error.statusCode || 500;
     const message = error.message;
